@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}
+Doctors
+{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+  <h2 class="text-center fw-bold text-primary mb-4">Our Doctors</h2>
+  <p class="text-center text-muted mb-5">
+    Meet our expert team of doctors who provide world-class healthcare at MediSync.
+  </p>
+
+  <div class="row g-4">
+    {% for d in doc %}
+<div class="col-md-6 col-lg-4">
+  <div class="card h-100 shadow border-0 rounded-4 text-center">
+    <img src="{{ d.doc_image.url }}" class="card-img-top rounded-top" alt="Doctor Image">
+    <div class="card-body">
+      <h5 class="card-title fw-bold">Dr. {{ d.doc_name }}</h5>
+      <p class="card-text text-muted mb-1">{{ d.doc_spec }}</p>
+      <span class="badge bg-success">{{ d.dep_name.dep_name }} Department</span>
+    </div>
+  </div>
+</div>
+{% endfor %}
+  </div>
+</div>
+{% endblock %}        
